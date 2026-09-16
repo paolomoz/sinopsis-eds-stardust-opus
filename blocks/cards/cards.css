@@ -1,27 +1,70 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* cards — "What's New" 3-up news cards (borderless, image + meta + title). */
+.cards.block {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  list-style: none;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards .card-image { line-height: 0; }
+.cards .card-image img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+.cards .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  padding: 18px 0 24px;
 }
 
-.cards .cards-card-image {
-  line-height: 0;
+.cards .card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0;
 }
 
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.cards .chip {
+  background: var(--purple);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.cards .card-date { font-size: 14px; font-weight: 300; color: var(--grey); }
+
+.cards .card-title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.cards .card-more { margin: auto 0 0; }
+
+.cards a.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media (width <= 900px) {
+  .cards.block { grid-template-columns: 1fr; gap: 28px; }
 }

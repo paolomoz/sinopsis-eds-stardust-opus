@@ -1,0 +1,18 @@
+/* logos — centered partner logo row on the tinted band. */
+.logos .logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 64px;
+  max-width: var(--content-width);
+  margin: 36px auto 0;
+}
+
+.logos .logo { display: inline-flex; align-items: center; }
+.logos .logo img { height: 42px; width: auto; object-fit: contain; }
+
+@media (width <= 600px) {
+  .logos .logos-row { gap: 32px; }
+  .logos .logo img { height: 30px; }
+}

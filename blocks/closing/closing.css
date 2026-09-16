@@ -1,0 +1,26 @@
+/* closing — full-bleed purple "Connect with Us" CTA band. */
+.closing.block {
+  background: linear-gradient(90deg, var(--purple-dark) 0%, var(--purple) 100%);
+  color: #fff;
+  margin: 0;
+  padding: 82px 16px 96px;
+}
+
+.closing .closing-inner { max-width: var(--content-width); margin: 0 auto; text-align: center; }
+
+.closing .closing-inner h2 { font-size: 34px; font-weight: 300; line-height: 1.1; color: #fff; margin-bottom: 26px; }
+
+/* CTA is a white pill on the purple ground */
+.closing .closing-inner a.button,
+.closing .closing-inner a.button.primary {
+  background: #fff;
+  border-color: #fff;
+  color: var(--purple-dark);
+}
+
+.closing .closing-inner a.button:hover { background: transparent; color: #fff; }
+
+@media (width <= 600px) {
+  .closing.block { padding: 56px 16px 64px; }
+  .closing .closing-inner h2 { font-size: 26px; }
+}

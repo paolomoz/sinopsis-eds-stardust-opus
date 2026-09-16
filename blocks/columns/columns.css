@@ -21,9 +21,9 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    align-items: start;
     flex-direction: unset;
-    gap: 24px;
+    gap: 90px;
   }
 
   .columns > div > div {
@@ -31,3 +31,17 @@
     order: unset;
   }
 }
+
+/* synopsys Support & Services / Careers band */
+.columns.block { max-width: var(--content-width); margin: 0 auto; }
+.columns.block h2 { font-size: 32px; font-weight: 300; line-height: 1.1; margin-bottom: 14px; color: var(--text-color); }
+.columns.block p { font-size: 18px; font-weight: 300; margin-bottom: 18px; max-width: 480px; }
+.columns.block a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 400;
+}
+

@@ -1,0 +1,54 @@
+/* benefits — two-column icon link grid. Row-major grid: col 1 = Industry,
+   col 2 = Technology. */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 90px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.benefits .benefits-colhead {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.benefits .benefit {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 16px;
+  align-items: start;
+  padding: 36px 0;
+  border-top: 1px solid #e4e4e4;
+  color: var(--text-color);
+}
+
+.benefits .benefit:hover { color: var(--primary); }
+
+.benefits .benefit-icon { width: 40px; height: 40px; }
+.benefits .benefit-icon img { width: 100%; height: 100%; object-fit: contain; }
+
+.benefits .benefit-text { display: block; }
+
+.benefits .benefit-text h2,
+.benefits .benefit-text h3,
+.benefits .benefit-text h4 {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.benefits .benefit-desc {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+@media (width <= 900px) {
+  .benefits-grid { grid-template-columns: 1fr; gap: 0; }
+}

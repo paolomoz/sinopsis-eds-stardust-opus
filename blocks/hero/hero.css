@@ -1,37 +1,137 @@
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.hero {
+/* hero — dark video/poster band, left-offset content, 5-slide nav strip.
+   Lifted from the synopsys prototype; scoped under .hero. Overlay chrome
+   sits above it, so the band owns the full top (content starts at y≈223). */
+.hero.block {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  height: 700px;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--hero-top) 0%, var(--hero-bottom) 55%, #2a1550 100%);
+  color: #fff;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero picture {
+.hero .hero-media {
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  z-index: 0;
 }
 
-.hero img {
-  object-fit: cover;
+.hero .hero-media img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center right;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
+.hero .hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(6 8 18 / 85%) 0%, rgb(6 8 18 / 45%) 40%, rgb(6 8 18 / 0%) 70%);
+}
+
+.hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 223px 40px 0 160px;
+}
+
+.hero .hero-inner h1 {
+  max-width: 560px;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.hero .hero-inner .hero-lede {
+  max-width: 560px;
+  margin: 26px 0 30px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.hero .hero-inner .button-wrapper { margin: 0; }
+
+/* hero CTA is a thin white outline rectangle, not the global pill */
+.hero .hero-inner a.button,
+.hero .hero-inner a.button.primary,
+.hero .hero-inner a.button.secondary {
+  height: auto;
+  padding: 8px 24px;
+  border: 1px solid #fff;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 300;
+  background: transparent;
+  color: #fff;
+}
+
+.hero .hero-inner a.button:hover { background: #fff; color: var(--text-color); }
+
+/* slide-nav strip */
+.hero .hero-nav {
+  position: absolute;
+  left: 160px;
+  right: 36px;
+  bottom: 44px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero .hero-nav p {
+  flex: 1 1 0;
+  max-width: 210px;
+  margin: 0 22px 0 0;
+}
+
+.hero .hero-nav p a {
+  color: rgb(255 255 255 / 55%);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.375;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero .hero-nav p a.is-active { color: #fff; }
+
+.hero .hero-nav p::before {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-bottom: 18px;
+  background: rgb(255 255 255 / 30%);
+}
+
+.hero .hero-nav p:has(a.is-active)::before { background: #fff; }
+
+.hero .hero-play {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 55%);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (width <= 900px) {
+  .hero.block { height: auto; min-height: 560px; }
+  .hero .hero-inner { padding: 150px 20px 40px; }
+  .hero .hero-inner h1 { font-size: 32px; line-height: 1.3; }
+  .hero .hero-nav { position: static; left: auto; right: auto; bottom: auto; padding: 0 20px 32px; flex-wrap: wrap; gap: 12px; }
+  .hero .hero-nav a { max-width: none; flex-basis: 40%; }
+  .hero .hero-play { display: none; }
 }
