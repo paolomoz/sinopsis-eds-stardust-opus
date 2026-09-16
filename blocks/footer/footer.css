@@ -1,5 +1,7 @@
-/* footer — dark synopsys mega footer. */
-footer .footer {
+/* footer — dark synopsys mega footer. Styles the block div directly
+   (an inner .footer wrapper collides with the visibility reservation). */
+footer .footer.block {
+  display: block;
   background: var(--dark-color);
   color: #fff;
   padding: 26px 16px 14px;

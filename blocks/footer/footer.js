@@ -11,8 +11,10 @@ import { loadFragment } from '../fragment/fragment.js';
 export default async function decorate(block) {
   const fragment = await loadFragment('/footer');
   block.textContent = '';
-  const footer = document.createElement('div');
-  footer.className = 'footer';
+  // Append directly to the block div — an inner ".footer" wrapper collides with
+  // the boilerplate's `footer .footer { visibility: hidden }` reservation rule
+  // (only `[data-block-status=loaded]`, which sits on the block, is revealed).
+  const footer = block;
 
   if (fragment) {
     // 1. columns — group each <h3> with the <ul> that follows it
@@ -50,6 +52,4 @@ export default async function decorate(block) {
     footer.append(bar);
     if (legal) { legal.classList.add('footer-legal'); footer.append(legal); }
   }
-
-  block.append(footer);
 }
